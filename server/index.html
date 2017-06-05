@@ -74,7 +74,7 @@
             <div class="col-xs-6 col-sm-6 col-lg-6">
               <div class="input-group">
                 <input type="text" class="form-control" id="messageBox" name="message"
-                       placeholder="Type a message..">
+                       placeholder="Type a message.." onkeypress="return enterKey(event)">
                 <span class="input-group-btn">
                   <button class="btn btn-default" type="button" onclick="submit()">Go!</button>
                 </span>
@@ -95,9 +95,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.2/socket.io.js"></script>
 
     <script>
-      var socket = io();
+		function enterKey(e) {
+			if (e.keyCode == 13) {
+				let mb = document.getElementById("messageBox");
+
+				if (mb.value !== '' && mb.value.length > 0) {
+					submit();
+				}
+			}
+		}
+
+      let socket = io();
       let peers = [];
-      /* keep track of web worker. */
+
+			/* keep track of web worker. */
+
       let hashWorker = undefined;
       let blocks = undefined;
       let identity = undefined;
