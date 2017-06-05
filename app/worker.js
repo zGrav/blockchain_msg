@@ -1,4 +1,4 @@
-let CryptoJS = require('crypto-js');
+importScripts('crypto-js/crypto-js.js'); //delete when webpack/browserify is used
 
 function work(block, difficulty) {
   let counter = 0;

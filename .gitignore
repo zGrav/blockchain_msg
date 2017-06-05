@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-node_modules
-=======
 # Logs
 logs
 *.log
@@ -88,4 +85,3 @@ static/scripts/sandbox.js
 static/version
 
 common/locales/found.json
->>>>>>> 19a2b394cb2ca60c055d030d2bd5fb9e4d3df012

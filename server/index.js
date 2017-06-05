@@ -4,9 +4,10 @@ let http = require('http').Server(app);
 let io = require('socket.io')(http);
 let crypto = require('crypto');
 let CryptoJS = require('crypto-js');
+const path = require('path');
 
-app.use(express.static('/public'));
-app.use(express.static('/app'));
+app.use('/public', express.static(path.join(__dirname, '../public')))
+app.use('/app', express.static(path.join(__dirname, '../app')))
 
 let randomGenesisHash = "";
 
