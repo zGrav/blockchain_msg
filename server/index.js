@@ -23,7 +23,7 @@ const genesis = {
 	header: {
 		index: 0,
 		previousHash: '',
-		timestamp: Math.floor(Date.now() / 1000),
+		timestamp: Math.floor(Date.now()),
 		nonce: 0,
 	},
 	data: {

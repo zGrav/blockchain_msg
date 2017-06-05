@@ -263,8 +263,11 @@
         }
 
         function block2string(block) {
-          return new String("[" + block.header.index + "] " +
-                            block.data.sender/*.substring(6)*/ + " > " + block.data.message);
+					let timestamp = (new Date(block.header.timestamp));
+					let formattedDate = timestamp.getDay() + '/' + timestamp.getMonth() + '/' + timestamp.getFullYear() + ' ' + timestamp.getHours() + ":" + timestamp.getMinutes() + ":" + timestamp.getSeconds();
+
+          return new String("[" + block.header.index + "] " + " at " + formattedDate + " - " +
+                            block.data.sender/*.substring(6)*/ + " >> " + block.data.message);
         };
 
         let list = blocks.reduce(function (a, b) {
