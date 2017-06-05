@@ -26,7 +26,7 @@ let genesis = {
     nonce: 0
   },
   data: {
-    sender: "zgrav",
+    sender: randomGenesisHash,
     message: "time has begun flowing.",
   }
 };
