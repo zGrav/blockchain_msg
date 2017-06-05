@@ -275,8 +275,7 @@
 					let formattedDate =  day + '/' + month + '/' + year + ' ' + hours + ":" + minutes + ":" + seconds;
 
 
-          return new String("[" + block.header.index + "] " + " at " + formattedDate + " - " +
-                            block.data.sender/*.substring(6)*/ + " >> " + block.data.message.substring(0, 160).replace(/<\/?[^>]+(>|$)/g, ""));
+          return new String(formattedDate + " - " + block.data.sender/*.substring(6)*/ + " >> " + block.data.message.substring(0, 160).replace(/<\/?[^>]+(>|$)/g, ""));
         };
 
         let list = blocks.reduce(function (a, b) {
