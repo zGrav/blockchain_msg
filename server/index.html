@@ -264,7 +264,15 @@
 
         function block2string(block) {
 					let timestamp = (new Date(block.header.timestamp));
-					let formattedDate = timestamp.getDay() + '/' + timestamp.getMonth() + '/' + timestamp.getFullYear() + ' ' + timestamp.getHours() + ":" + timestamp.getMinutes() + ":" + timestamp.getSeconds();
+
+					let day = timestamp.getDay() < 10 ? "0" + timestamp.getDay() : timestamp.getDay();
+					let month = timestamp.getMonth() < 10 ? "0" + timestamp.getMonth() : timestamp.getMonth();
+					let year = timestamp.getFullYear();
+					let hours = timestamp.getHours() < 10 ? "0" + timestamp.getHours() : timestamp.getHours();
+					let minutes = timestamp.getMinutes() < 10 ? "0" + timestamp.getMinutes() : timestamp.getMinutes();
+					let seconds = timestamp.getSeconds() < 10 ? "0" + timestamp.getSeconds() : timestamp.getSeconds();
+
+					let formattedDate =  day + '/' + month + '/' + year + ' ' + hours + ":" + minutes + ":" + seconds;
 
           return new String("[" + block.header.index + "] " + " at " + formattedDate + " - " +
                             block.data.sender/*.substring(6)*/ + " >> " + block.data.message);
