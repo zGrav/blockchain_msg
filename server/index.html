@@ -117,31 +117,36 @@
       let difficulty = undefined;
 
       socket.on('set-identity', function(id) {
-        console.log("got identity " + id);
-        identity = id;
+        //console.log("got identity " + id);
+
+				identity = id;
       });
 
       socket.on('set-blocks', function(blks) {
-        console.log("got blocks " + JSON.stringify(blks));
-        blocks = blks;
+        //console.log("got blocks " + JSON.stringify(blks));
+
+				blocks = blks;
         UIUpdateBlocks(blocks);
       });
 
       socket.on('set-peers', function(peerz) {
-        console.log("set-peers: " + JSON.stringify(peerz));
-        peers = peerz;
+        //console.log("set-peers: " + JSON.stringify(peerz));
+
+				peers = peerz;
         UIUpdateUsers(peers, identity);
       });
 
       socket.on('new-block', function(block) {
-        console.log("new-block: " + JSON.stringify(block));
-        blocks.push(block);
+        //console.log("new-block: " + JSON.stringify(block));
+
+				blocks.push(block);
         UIAddBlock(block);
       });
 
       socket.on('set-difficulty', function(newDifficulty) {
-        console.log("set-difficulty " + newDifficulty + " received");
-        UIUpdateDifficulty(newDifficulty);
+        //console.log("set-difficulty " + newDifficulty + " received");
+
+				UIUpdateDifficulty(newDifficulty);
 
         /* terminate a working hashWorker when difficulty changes. */
         /* TODO: restart it with the same block. */
@@ -153,20 +158,24 @@
 
           if(hashWorker)
           {
-            console.log("terminating previous hashWorker old diff " + difficulty + " new diff " + newDifficulty);
-            hashWorker.terminate();
+            //console.log("terminating previous hashWorker old diff " + difficulty + " new diff " + newDifficulty);
+
+						hashWorker.terminate();
 
             /* TODO: move code inside a function. */
             hashWorker = new Worker('./app/worker.js');
             hashWorker.postMessage([processBlock, difficulty]);
-            console.log('Message posted to worker');
+
+						//console.log('Message posted to worker');
 
             /* callback from worker. */
             hashWorker.onmessage = function(e) {
               let block = e.data;
               processBlock = undefined;
-              console.log('main: block received from worker ' + JSON.stringify(block));
-              socket.emit("new-block", block);
+
+							//console.log('main: block received from worker ' + JSON.stringify(block));
+
+							socket.emit("new-block", block);
               hashWorker = undefined;
 
               $("#messageBox").prop('disabled', false);
@@ -208,14 +217,16 @@
         $("#messageBox").prop('disabled', true);
         $("#messageBox").attr("placeholder", "Hashing..");
 
-        console.log('Message posted to worker');
+        //console.log('Message posted to worker');
 
         /* callback from worker. */
         hashWorker.onmessage = function(e) {
           let block = e.data;
           processBlock = undefined;
-          console.log('main: block received from worker ' + JSON.stringify(block));
-          socket.emit("new-block", block);
+
+					//console.log('main: block received from worker ' + JSON.stringify(block));
+
+					socket.emit("new-block", block);
           hashWorker = undefined;
 
           $("#messageBox").prop('disabled', false);
@@ -253,7 +264,7 @@
 
         function block2string(block) {
           return new String("[" + block.header.index + "] " +
-                            block.data.sender.substring(6) + " > " + block.data.message);
+                            block.data.sender/*.substring(6)*/ + " > " + block.data.message);
         };
 
         let list = blocks.reduce(function (a, b) {
