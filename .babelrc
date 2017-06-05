@@ -2,6 +2,7 @@
     "presets": ["es2015", "stage-0", "react", "flow"],
     "plugins": ["add-module-exports", "transform-runtime",
     ["babel-plugin-module-alias", [
-        { "src": "./app", "expose": "app" }
+        { "src": "./app", "expose": "app" },
+				{ "src": "./common/tools", "expose": "tools" }
     ]]]
 }
