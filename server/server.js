@@ -15,8 +15,8 @@ error.log = console.error.bind(console);
 
 const path = require('path');
 
-app.use('/public', express.static(path.join(__dirname, '../public')))
-app.use('/app', express.static(path.join(__dirname, '../app')))
+app.use('/public', express.static(path.join(__dirname, '../public')));
+app.use('/app', express.static(path.join(__dirname, '../app')));
 
 let randomGenesisHash = '';
 
@@ -115,7 +115,7 @@ io.on('connection', function(socket) {
 		}
 
 		/* validate index */
-		if (block.header.index == lastBlock.header.index + 1) {
+		if (block.header.index === lastBlock.header.index + 1) {
 			debug('index matches');
 		} else {
 			debug('index does not match');
