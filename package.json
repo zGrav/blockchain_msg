@@ -1,0 +1,19 @@
+{
+  "name": "",
+  "version": "",
+  "private": true,
+  "description": "",
+  "dependencies": {
+    "babel-eslint": "^7.2.3"
+  },
+  "devDependencies": {
+    "eslint": "3.12.0",
+    "eslint-config-airbnb": "13.0.0",
+    "eslint-plugin-flowtype": "^2.33.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "2.2.3",
+    "eslint-plugin-react": "6.8.0"
+  },
+  "scripts": {},
+  "author": ""
+}
