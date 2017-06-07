@@ -1,3 +1,5 @@
+import { expect } from 'jest';
+
 describe('Server', () => {
 	it('should be able to run tests', () => {
 		expect(1 + 2).toEqual(3);
@@ -37,8 +39,8 @@ const genesis = {
 
 describe('Server', () => {
 	it('should be able to see data inside genesis block', () => {
-    expect(genesis.hash).toBe(randomGenesisHash);
-    expect(genesis.data.sender).toBe(randomGenesisHash);
-    expect(genesis.data.message).toBe('time has begun flowing...');
+		expect(genesis.hash).toBe(randomGenesisHash);
+		expect(genesis.data.sender).toBe(randomGenesisHash);
+		expect(genesis.data.message).toBe('time has begun flowing...');
 	});
 });
