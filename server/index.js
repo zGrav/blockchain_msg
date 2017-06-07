@@ -8,7 +8,6 @@ require('babel-register')({
     plugins: [
         'add-module-exports',
         ["babel-plugin-module-alias", [
-            { "src": "./app/components", "expose": "components" },
             { "src": "./common/tools", "expose": "tools" },
         ]]
     ]
