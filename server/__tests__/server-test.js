@@ -1,4 +1,4 @@
-import { expect } from 'jest';
+import expect from 'jest-matchers';
 
 describe('Server', () => {
 	it('should be able to run tests', () => {
