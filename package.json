@@ -1,7 +1,7 @@
 {
   "name": "blockchain_msg",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "description": "super awesome blockchain thingy",
   "dependencies": {
     "bootstrap": "^3.3.7",
